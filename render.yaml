@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sakurabeauty
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false # paste the Neon Postgres connection string in the Render dashboard
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_USER
+        value: admin
+      - key: ADMIN_PASS
+        sync: false # set the admin password in the Render dashboard (default if unset: admin123)
